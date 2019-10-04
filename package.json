@@ -4,13 +4,13 @@
   "description": "train framework ecosystem",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "nuxt": "nuxt"
+    "test": "test"
   },
   "author": "Alexandr Lukovnikov",
   "license": "ISC",
   "dependencies": {
     "@pushcorn/hocon-parser": "^1.1.2",
+    "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "node-gzip": "^1.1.2",
     "nunjucks": "^3.2.0",
