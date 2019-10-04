@@ -11,7 +11,7 @@ const { spawn } = require("child_process");
  * watch and rebuild
  */
 (async () => {
-  const child = spawn("../Tests/output/out");
+  const child = spawn("../train-test/output/out");
   child.stdout.on("data", function(data) {
     process.stdout.write(`${data.toString()}\n`);
   });

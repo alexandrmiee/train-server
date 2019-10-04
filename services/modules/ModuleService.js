@@ -12,7 +12,7 @@ const readFile = util.promisify(fs.readFile);
 const { readdir, stat } = require("fs").promises;
 const { join } = require("path");
 
-const OUTPUT_DIR = "/home/alex/web/Train/Tests";
+const OUTPUT_DIR = "/home/alex/web/Train/train-test";
 
 module.exports = class Modules {
   dirname = __dirname;
