@@ -1,0 +1,47 @@
+MAKE_DIR = {{module.path}}
+
+AT_DIR := $(MAKE_DIR)/AT
+Core_DIR := $(MAKE_DIR)/Core
+Database_DIR := $(MAKE_DIR)/Database
+Files_DIR := $(MAKE_DIR)/Files
+Internet_DIR := $(MAKE_DIR)/Internet
+JSON_DIR := $(MAKE_DIR)/JSON
+Memory_DIR := $(MAKE_DIR)/Memory
+Flash_DIR := $(MAKE_DIR)/Memory/Flash
+JDEC_DIR := $(MAKE_DIR)/Memory/Flash/JDEC
+MQTT_DIR := $(MAKE_DIR)/MQTT
+OneWire_DIR := $(MAKE_DIR)/OneWire
+REST_DIR := $(MAKE_DIR)/REST
+Serial_DIR := $(MAKE_DIR)/Serial
+
+INC := 
+INC += -I$(AT_DIR)
+INC += -I$(Core_DIR)
+INC += -I$(Database_DIR) 
+INC += -I$(Files_DIR)
+INC += -I$(Internet_DIR)
+INC += -I$(JSON_DIR)
+INC += -I$(Memory_DIR)
+INC += -I$(Flash_DIR)
+INC += -I$(JDEC_DIR)
+INC += -I$(MQTT_DIR)
+INC += -I$(OneWire_DIR)
+INC += -I$(REST_DIR)
+INC += -I$(Serial_DIR)
+
+CFLAGS :=
+CFLAGS += -Wall -O -ggdb -Wstrict-prototypes -Wno-pointer-sign -finstrument-functions -fdump-rtl-expand
+CFLAGS += -DDEBUG -D_REENTRANT
+
+export MAKE_DIR CC LD CFLAGS LDFLAGS LIBS LINT INC_SRCH_PATH
+
+all: {{module.all}}
+
+#{{module.moduleName}}: {{module.moduleName}}.c
+#	gcc $(INC) -Wall -o {{module.moduleName}} {{module.moduleName}}.c
+
+{% for file in module.files %}
+.PHONY : {{file}}
+{{file}}: {{file}}.c
+	gcc $(INC) -c -g -std=c99 -Wall {{file}}.c
+{% endfor %}

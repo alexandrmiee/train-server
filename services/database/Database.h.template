@@ -1,0 +1,10 @@
+typedef struct module{
+  {% for name, content in db %}struct {
+    char {{content.name}}[{{content.name.length+1}}]; /**buffer for `{{content.name}}{`*/
+    {% for row in content.rows %}
+    char {{row.name}}[{{row.name.length+1}}]; /**buffer for key `{{row.name}}:`*/
+    char {{row.name}}Val[{{row.size}}]; /**buffer for value, set default value to `{{row.value}}`*/
+    {% endfor %}char {{content.name}}Pad[1]; /**padding for `}`*/
+  }__attribute__((packed)){{content.name}};
+  {% endfor %}
+}__attribute__((packed)) ModuleDb_st;

@@ -1,0 +1,4 @@
+  {% for name, content in db %}"{{name}}{"
+    {% for row in content.rows %}"{{row.name}}:{{row.value}},"
+    {% endfor %}"}"
+  {% endfor %}

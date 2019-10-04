@@ -1,0 +1,26 @@
+{
+  "name": "train",
+  "version": "1.0.0",
+  "description": "train framework ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "nuxt": "nuxt"
+  },
+  "author": "Alexandr Lukovnikov",
+  "license": "ISC",
+  "dependencies": {
+    "@pushcorn/hocon-parser": "^1.1.2",
+    "ncp": "^2.0.0",
+    "node-gzip": "^1.1.2",
+    "nunjucks": "^3.2.0",
+    "nuxt": "^2.9.2",
+    "path-to-regexp": "^3.1.0",
+    "vuetify": "^2.0.19"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@mdi/font": "^4.4.95",
+    "@nuxtjs/vuetify": "^1.8.5"
+  }
+}
